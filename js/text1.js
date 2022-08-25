@@ -40,8 +40,8 @@ $( document ).ready(function() {
     // input창에 "유"입력 시 연관검색어 출력. 글자를 지울 경우 리스트 삭제
     
     let recomList = ["유튜브 프리미엄","유튜브 미리보기","유튜브 검색하는 법"];
-    //var search_keywords = $(".showKeywords");
-    var search_keywords = $("#search_keywords");
+    var search_keywords = $(".showKeywords");
+    //var search_keywords = $("search_keywords");
     function keywordsList()
     {
         for(var i=0; i<recomList.length; i++)
@@ -52,7 +52,6 @@ $( document ).ready(function() {
 
             keywords.querySelector(".keywordName").innerText=recomList[i];
             keywordsContainer.appendChild(keywords);
-            console.log(keywords);
         }
     }
 
@@ -71,22 +70,21 @@ $( document ).ready(function() {
         console.log("keyup");
         rmkeywords();
         var searchValue = document.getElementById("input").value;
-        window.onload = function(){
-            console.log("asdfasdf");
-            if(searchValue.indexOf("유")!=-1)
-            {
-                console.log("ㅇㅇ");
-                keywordsList();
-                //search_keywords.addClass("onKeyup");
-                search_keywords.attr("id", "onKeyup");
-            }
-            else
-            {
-                console.log("ㄴㄴ");
-                //search_keywords.removeClass("onKeyup");
-                search_keywords.removeAttr("id", "onKeyup");
-            }
+        console.log("asdfasdf");
+        if(searchValue.indexOf("유")!=-1)
+        {
+            console.log("ㅇㅇ");
+            keywordsList();
+            //search_keywords.addClass("onKeyup");
+            search_keywords.attr('id', 'onKeyup');
         }
+        else
+        {
+            console.log("ㄴㄴ");
+            //search_keywords.removeClass("onKeyup");
+            search_keywords.removeAttr("id", "onKeyup");
+        }
+        
         
     }
     //keyup
